@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+.container {
+  background: #fff;
+
+
+}
+
+.cardContainer {
+
+  position: relative;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300%; 
+  /* height: 1000px; */
+  justify-content: left;
+  align-items: left;
+  flex-wrap: wrap;
+  padding: 0px;
+  background: #fff;
+  border: none;
+
+} 
+
+
+
+.cardContainer .card {
+   position: relative;
+    max-width: 300px;
+    height: 200px;
+    margin-top: 0px;
+    padding: 0px 15px;
+    display: inline-block;
+    flex-direction: column;
+    /* box-shadow: 0 5px 20px rgb(157, 196, 93); */
+    transition: 0.3s ease-in-out;
+    background: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+
+}
+.cardContainer .card:hover {
+  height: 420px;
+}
+.cardContainer .card .imgBx {
+  position: relative;
+  width:100px;
+  /* widows: 260px;
+  height: 250px; */
+  /* top: -60px; */
+  top: -20px;
+  left: 20px;
+  z-index: 1;
+  box-shadow: 0 5px 20px;
+  color: rgba(242, 245, 242, 0.5);
+}
+.cardContainer .card .imgBx img {
+  max-width: 100%;
+  border-radius: 4px;
+  
+}
+.cardContainer .card .content {
+  /* line-height:65px; */
+  position: relative;
+  margin-top:-100px;
+  padding: 20px 15px;
+  text-align: left;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  padding-bottom: 5%;
+}
+.cardContainer .card:hover .content {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -40px;
+  transition-delay: 0.3s;
+}
+
+
+.cardContainer .card .content h2 {
+  font-size: 15px;
+  margin-top: 0px;
+  color:rgb(157, 196, 93);
+  font-weight: bold;
+}
+
+.cardContainer .content p {
+  font-size: 10px;
+  /* font-weight: bold; */
+}
+
+.cardContainer .content a {
+  color: rgb(157, 196, 93);
+  font-size: 18px;
+  font-weight: bold;
+
+}
+
+.corpsPage h3 {
+  color: rgb(117, 114, 114);
+}
+.corpsPage p{
+  font-size: 30px;
+  color:rgb(145, 209, 41);
+  margin-bottom: 7%;
+  margin-top: 12%;
+
+}
+
+ 
+
+.contentCompaniesPage {
+  text-align: center;
+
+}
+
+.contentCompaniesPage h1 {
+
+  color:rgb(76, 83, 65);
+
+}
+
+.contentCompaniesPage .contentMsgAccueil {
+}

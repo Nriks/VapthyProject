@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- <link rel="stylesheet" href="static/blog/css/accueilStyle.css" /> -->
+<!-- <link rel="stylesheet" href="{% static 'home/css/accueilStyle.css'%}" /> -->
+
+
+{% block title %}Companies{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/companyPage.css' %}">
+
+<div class="contentCompaniesPage">
+    <h1>
+        {{company.name}}
+    </h1>
+    <div class="contentMsgAccueil">
+        <p class="contentMsgAccueil">{{company.creation_date}}</p>
+        <p class="contentMsgAccueil">{{company.creator}} </p>
+        <p class="contentMsgAccueil">{{company.description}}</p>
+    </div>
+</div>
+
+<div class="cardContainer">
+    {% for product in product %}
+    <div class="card">
+        <div class="imgBx">
+            <img src="{{ product.photo.url }}" />
+        </div>
+        <div class="content">
+            <p>{{product.name }}</p>
+            <p>{{product.description }}</p>
+            <a href="{% url 'detailsProduct' product.id %}">En savoir plus</a>
+
+        </div>
+    </div>
+{% empty %}
+<p>Aucun article.</p>
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- <link rel="stylesheet" href="static/blog/css/accueilStyle.css" /> -->
+<!-- <link rel="stylesheet" href="{% static 'home/css/accueilStyle.css'%}" /> -->
+
+
+{% block title %}Product{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/companyPage.css' %}">
+
+<div class="contentCompaniesPage">
+    <h1>
+        {{product.name}}
+    </h1>
+    <div class="contentMsgAccueil">
+        <p class="contentMsgAccueil">{{product.description}}</p>
+        <p class="contentMsgAccueil">Les génies : {{product.name}}</p>
+        <img src="{{product.photo.url}}" />
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- <link rel="stylesheet" href="static/blog/css/accueilStyle.css" /> -->
+
+
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'home/companies.css' %}">
+<div class="contentCompaniesPage">
+<h1>Les grands maitres fabricants</h1>
+<p class="contentMsgAccueil">
+    Découvrez ici les entreprises/marques/brands du monde fabuleux de la vaporisation d'herbes
+    sèches. <br>
+    c'est vraiment des monstres, n'hésitez pas à consulter les produits qu'ils proposent accompagnés des avis de la
+    communauté.
+</p>
+</div>
+<div class="cardContainer">
+{% for company in all_companies %}
+
+    <div class="card">
+        <div class="imgBx">
+            <img class="scale-with-grid" src="{{ company.photo.url }}" />
+        </div>
+        <div class="content">
+            <h2>{{company.name}}</h2>
+            <p>CReateur est {{company.creator}}</p>
+            <p>{{company.content_presentation|truncatewords_html:80}}</p>
+            <a href="{% url 'companyPage' company.id %}">Voir les produits</a>
+        </div>
+    </div>
+
+{% empty %}
+<p>Aucun article.</p>
+{% endfor %}
+</div>
+{% endblock %}

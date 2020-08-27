@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+.contact-section {
+    margin-top: 0px;
+    
+    background-attachment: fixed;
+    background-size: contain;
+    padding: 40px;
+    font-weight: bold;
+}
+
+.form-connexion h1 {
+    text-align: center;
+    color: rgb(157, 196, 93);
+    font-size: 40px;
+}
+
+.form-connexion {
+    display: block;
+    float: right;
+    width: 50%;
+    padding-right: 400px;
+}
+
+.border {
+    width: 100px;
+    height: 10px;
+    background: rgb(157, 196, 93);
+    margin: 40px auto;
+}
+
+.connexion-form {
+    max-width: 600px;
+    margin: auto;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.connexion-form-text {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 16px 0;
+    border: 0;
+    background: rgb(153, 151, 151);
+    padding: 20px 40px;
+    outline: none;
+    color: #ddd;
+    transition: 0.5s;
+    border-radius: 20PX;
+}
+
+.connexion-form-text:focus {
+    box-shadow: 0 0 10px 4px rgb(157, 196, 93);
+}
+
+.connexion-form-btn {
+    float: right;
+    border: 0;
+    background: rgb(157, 196, 93);
+    color: #fff;
+    padding: 12px 50px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.connexion-form-btn:hover {
+    background: olivedrab;
+}
+
+::placeholder {
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.connexion-form label {
+    color: rgb(157, 196, 93);
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.connexion-form input {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+

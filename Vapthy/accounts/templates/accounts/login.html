@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+      integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../static/login.css" />
+  </head>
+
+  <body>
+    <div class="form-connexion">
+      <h1>LOGIN</h1>
+      <form class="connexion-form" method="POST" action="">
+        {% csrf_token %}
+        <span class="input-group-text"><i class="fas fa-user"></i></span>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username..."
+          class="connexion-form-text"
+        />
+
+        <span class="input-group-text"><i class="fas fa-key"></i></span>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password..."
+          class="connexion-form-text"
+        />
+
+        <div class="connexion-form-btn">
+          <input class="connexion-form-btn" type="submit" value="Login" />
+        </div>
+      </form>
+
+      {% for message in messages %}
+      <p id="message">{{message}}</p>
+      {% endfor %}
+
+      <div class="mt-4">
+        <div class="d-flex justify-content-center links">
+          Don't have an account?
+          <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
