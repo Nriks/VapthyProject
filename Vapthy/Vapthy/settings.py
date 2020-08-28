@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'contact',
     # 'contact.apps.ContactConfig',
 
+    'post',
 ]
 
 
