@@ -15,6 +15,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -39,8 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'accounts',
+    'contact',
+    # 'contact.apps.ContactConfig',
     'post',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,7 +63,8 @@ ROOT_URLCONF = 'Vapthy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ 
+        'DIRS': [
+            # os.path.join(SETTINGS_PATH, 'templates'),
             os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
@@ -85,7 +91,7 @@ MEDIA_URL = '/media/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR+ 'db.sqlite3',
+        'NAME': BASE_DIR + 'db.sqlite3',
     }
 }
 
@@ -132,3 +138,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
+# EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+# DEFAULT_FROM_EMAIL = 'vapthy@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.sendgrid.net'  # new
+EMAIL_HOST_USER = 'apikey'  # new
+EMAIL_HOST_PASSWORD = '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'
+
+# SENDGRID_API_KEY = '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'
+# SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+EMAIL_PORT = 587  # new
+EMAIL_USE_TLS = True  # new

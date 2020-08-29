@@ -6,5 +6,7 @@ app_name = "post"
 
 urlpatterns = [
     path('', views.post_view, name='post-list'),
-    path("like/", views.like_post, name="like-post"),
+    path('like/', views.like_post, name="like-post"),
+    path('', views.write_post, name="post-form"),
+    
 ]

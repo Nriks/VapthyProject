@@ -8,7 +8,7 @@
     <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
+    {% comment %} <link rel="shortcut icon" href="{{ STATIC_URL }}ico/favicon.ico"> {% endcomment %}
     <script src="https://kit.fontawesome.com/c7fff52afa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/css/base.css" />
 
@@ -27,6 +27,8 @@
                 <li><a href="{% url 'home' %}" class="m-link"><i class="fas fa-home"></i> Là on vap</a></li>
                 <li><a href="{% url 'companies' %}" class="m-link"><i class="fas fa-bahai"></i> Companies</a></li>
                 <li><a href="{% url 'allProducts' %}" class="m-link"><i class="far fa-newspaper"></i> Absolument tout</a></li>
+                <li><a href="{% url 'post:post-list' %}" class="m-link"><i class="fas fa-comments"></i> Les Posts</a></li>
+                
                 <li><a href="#" class="m-link"><i class="fas fa-comments"></i> Forum</a></li>
                 <li><a href="#" class="m-link"><i class="fas fa-address-book"></i> Contacts</a></li>
 
