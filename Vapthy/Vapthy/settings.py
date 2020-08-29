@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'accounts',
     'contact',
     # 'contact.apps.ContactConfig',
-
     'post',
 ]
 
@@ -140,6 +139,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']
 # EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 # DEFAULT_FROM_EMAIL = 'vapthy@gmail.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     title = models.CharField(max_length=150)
-    body = models.TextField()
+    body = models.CharField(max_length=300)
     liked = models.ManyToManyField(User,default=None, blank=True, related_name='Liked')
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)

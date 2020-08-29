@@ -20,16 +20,18 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 # from django.views.generic import RedirectView
 # from django.conf.urls import url
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     # url(r'^favicon.ico$',RedirectView.as_view(url='/static/images/favicon.ico')),
+    # url(r'^favicon.ico$', RedirectView.as_view(url='/static/image/favicon.ico')),
+    path('favicon.ico/', RedirectView.as_view(url='/static/image/favicon.ico')),
     path('admin/', admin.site.urls),
     path('home/', include(('home.urls'))),
     path('', include(('accounts.urls'))),
     path('', include(('contact.urls'))),
 
-
-    path('post/', include(('post.urls'), namespace='post'))
+    path('post/', include('post.urls', namespace='post')),
 
 
 ]
