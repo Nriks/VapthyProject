@@ -1,7 +1,29 @@
-{% extends 'base.html' %} {% block title %} {% endblock title %} 
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %} {% endblock title %} 
 {% block content %} 
+    {% comment %} <link rel="stylesheet" href="/static/css/main.css" /> {% endcomment %}
+<link rel="stylesheet" type="text/css" href="{% static 'post/main.css' %}">
+
+<ul>
+{% for post in object_list %}
+<li><a href="{% url 'post:post-detail' post.pk %}">
+
+{{post.title}}</a> - By : {{ post.author }}<br/>
+<p>
+    {{post.body|truncatewords_html:80}}
+</p>
+</li>
+<br/>
+{% endfor %}
+</ul>
+
+
+
+{% comment %} <div class="containerPost">
 {% for obj in qs %}
-<h1>{{obj.title}}</h1>
+
+<h1>{{obj.title}} - {{ obj.author}}</h1>
 <p>{{obj.body}}</p>
 <form action="{% url 'post:like-post'%}" method="POST" lass="ui form">
   {% csrf_token %}
@@ -13,17 +35,45 @@
   {% endif %}
 </form>
 <strong>{{obj.liked.all.count}} likes</strong>
-{% endfor %}
-<h2>Ecrire un post ?</h2>
 
-<form method="POST" class="post-form">
+{% endfor %} 
+</div> {% endcomment %}
+<h2>Ecrire un post ?</h2>
+{% comment %} action="{% url "post-form" %}" {% endcomment %}
+{% comment %} <form method="POST" class="post-form">
   {% csrf_token %}
-  <label for="title">Title : 
-  <input id="title" type="text" name="your_title" value="{{ form.Post.title }}" />
-  </label>
-  <label for="title">Exprime toi : 
-  <input id="content" type="text" name="your_content" value="{{ form.Post.body }}" />
-  </label>
-  <button type="submit" class="save btn btn-default">Save</button>
-</form>
+<p><label for="id_envoyeur">Author:</label> {{request.user}}</p>
+<div>
+  <p><label for="id_sujet">Sujet:</label> <input id="id_sujet" type="text" name="sujet" maxlength="100" /></p>
+  {{form.title}}
+  </div>
+<p><label for="id_message">Message:</label> <textarea id="id_message" rows="10" cols="40" name="message"></textarea></p>
+ {% endcomment %}
+
+
+  {% comment %} <div>
+    <label for="title">Title : </label>
+
+    <span class="contact-form-text"></span>
+    {{form.Post.title}}
+  </div>
+
+  <div>
+    <label for="title">content : </label>
+
+    <span class="contact-form-text"></span>
+    {{form.body}}
+  </div> {% endcomment %}
+
+  {% comment %} <button type="submit" class="save btn btn-default">Post</button>
+</form> {% endcomment %}
+
+
+
+{% comment %} <form method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form> {% endcomment %}
+  {% comment %} <a href="{% url 'post:create-post' %}" class="ml-2">lets gro</a> {% endcomment %}
+
 {% endblock content %}
