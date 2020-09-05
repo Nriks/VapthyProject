@@ -1,8 +1,16 @@
-{% extends 'base.html' %} {% block title %} {% endblock title %} 
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %} {% endblock title %} 
 {% block content %} 
+<link rel="stylesheet" type="text/css" href="{% static 'post/main.css' %}">
+
 {% for obj in qs %}
 <h1>{{obj.title}}</h1>
 <p>{{obj.body}}</p>
+<div class="containerPost">
+<p>{{obj.id}}</p>
+<p>{{obj.id}}</p>
+
 <form action="{% url 'post:like-post'%}" method="POST" lass="ui form">
   {% csrf_token %}
   <input type="hidden" name="post_id" value="{{ obj.id }}" />
@@ -12,8 +20,13 @@
   <button class="ui button negative" type="submit">Unlike</button>
   {% endif %}
 </form>
-<strong>{{obj.liked.all.count}} likes</strong>
+</div>
+<strong id="numberLike">{{obj.liked.all.count}} likes</strong>
 {% endfor %}
+
+
+obj.liked.all.count
+
 <h2>Ecrire un post ?</h2>
 
 <form method="POST" class="post-form">

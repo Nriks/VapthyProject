@@ -6,8 +6,8 @@ from .forms import PostForm
 
 def post_view(request):
     qs = Post.objects.all()
+    liked
     user = request.user
-
     context = {
         'qs': qs,
         'user': user,
@@ -17,6 +17,7 @@ def post_view(request):
 
 
 def like_post(request):
+    
     user = request.user
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
@@ -37,6 +38,10 @@ def like_post(request):
 
         like.save()
     return redirect('post:post-list')
+
+def classify_post():
+    like_number = request.GET.get('numberLike')
+    like_number_sorted = sorted(like_number)
 
 
 def write_post(request):
