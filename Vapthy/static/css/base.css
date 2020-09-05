@@ -6,21 +6,24 @@
     box-sizing: content-box;
 }
 
-footer {
-    background: #fff;
-    position: fixed;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-
-}
-
 body
-{
-    background: #fff;
+{   
+    position: relative;
+    /* background: #fff; */
     /* min-height: 200vh; */
 }
+
+footer {
+    background: rgb(162, 78, 78);
+    position: absolute;
+    text-align: center;
+    /* bottom: 0; */
+    width: 100%;
+    height: 20px;
+
+}
+
+
 
 .header{
     background: rgb(145, 142, 142);

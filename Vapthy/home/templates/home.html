@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
+<div>
     <h2>Bienvenue !</h2>
     <p>
        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus 
@@ -9,7 +10,28 @@
        id lectus. Nam euismod cursus arcu, et consequat libero ullamcorper sit 
        amet.
 </p>
+</div>
+
+<div>
+    <h3>Les posts qui ont la cote : <h3>
+
+{% for obj in qs %}
+<h1>{{obj.title}}</h1>
+<p>{{obj.body}}</p>
+<form action="{% url 'post:like-post'%}" method="POST" class="ui form">
+  {% csrf_token %}
+  <input type="hidden" name="post_id" value="{{ obj.id }}" />
+  {% if user not in obj.liked.all %}
+  <button class="ui button positive" type="submit">Like</button>
+  {% else %}
+  <button class="ui button negative" type="submit">Unlike</button>
+  {% endif %}
+</form>
+<strong>{{obj.liked.all.count}} likes</strong>
+{% endfor %} 
 
 
+    
 
+</div>
 {% endblock %}

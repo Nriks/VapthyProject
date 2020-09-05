@@ -33,4 +33,3 @@ def companyPage(request, id):
 def detailsProduct(request, id):
     product = get_object_or_404(Product, id=id)
     return render(request, 'detailsProduct.html', {'product': product})
-
