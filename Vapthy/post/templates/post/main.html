@@ -9,7 +9,8 @@
 {% for post in object_list %}
 <li><a href="{% url 'post:post-detail' post.pk %}">
 
-{{post.title}}</a> - By : {{ post.author }}<br/>
+{{post.title}}</a> <br/>
+By : {{ post.author }} - Posté le : {{ post.created }}<br/>
 <p>
     {{post.body|truncatewords_html:80}}
 </p>
@@ -42,7 +43,10 @@
 
 {% endfor %} 
 </div> {% endcomment %}
-<h2>Ecrire un post ?</h2>
+
+
+<h2><a href="{% url 'post:post-create'  %}">Ecrire un post ?</a></h2>
+
 {% comment %} action="{% url "post-form" %}" {% endcomment %}
 {% comment %} <form method="POST" class="post-form">
   {% csrf_token %}
