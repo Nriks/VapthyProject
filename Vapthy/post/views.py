@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 # from .models import Post, Like
 from .models import Post
-
 from .forms import PostForm
 from django.views.generic import ListView, DetailView
 
@@ -54,8 +53,21 @@ class PostDetailView(DetailView):
 #         like.save()
 #     return redirect('post:post-list')
 
-# def create_post(request):
-#     return render(request, 'createPost.html')
+
+def create_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            # post.created = timezone.now()
+            post.save()
+            return redirect('/post', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request,  'post/createPost.html', {'form': form})
+
+
 
 # def write_post(request):
 #     if request.method == "POST":

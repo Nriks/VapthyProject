@@ -1,5 +1,11 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %} 
 <h1> {{post.title}} </h1>
-
-<small>By: {{ post.author.first_name }} {{post.author.last_name}} </small> <br/>
-
+<div class="contentPost">
 {{ post.body}}
+</div>
+<strong>By: {{ post.author.first_name }} {{post.author.last_name}} </strong> <br/>
+{% endblock %}
+
+

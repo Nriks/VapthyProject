@@ -1,8 +1,9 @@
 {% extends 'base.html' %} 
 {% block title %} {% endblock title %} 
 {% block content %} 
-<form method="post">{% csrf_token %}
+<h1>GAGNER</h1>
+<form method="POST" action="" >{% csrf_token %}
 {{ form.as_p }}
-<input type="submit" value="Submit" />
-</form>
+<button type="submit">Valider</button>
+</form> 
 {% endblock %}
